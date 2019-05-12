@@ -1,0 +1,11 @@
+.header {
+  display: flex;
+  margin-bottom: auto;
+  > div {
+    margin: 10px;
+    cursor: pointer;
+  }
+}
+mat-toolbar {
+  min-height: 200px;
+}

@@ -1,0 +1,23 @@
+<div [class.preview]="role.Preview === fs.role || role.Read === fs.role">
+  <mat-form-field *ngIf="role.Preview === fs.role || role.Read === fs.role">
+    <input matInput placeholder="Question"
+           [required]="field.required"
+           [value]="field.description"
+           readonly = "readonly"
+    >
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker"
+           placeholder="Month, date, year"
+           [disabled]="role.Preview !== fs.role"
+           [required]="field.required && role.Preview === fs.role"
+           [(ngModel)]="field.value"
+           [readonly]="field.readonly"
+    >
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</div>
+
+
+

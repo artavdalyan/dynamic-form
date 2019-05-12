@@ -1,0 +1,12 @@
+<div class="preview">
+  <ng-container
+    *ngFor="let field of fs.responses">
+    <ng-container
+      *ngFor="let field of field"
+      appDynamicField
+      [field]="field"
+      [readonly]="readonly"
+    >
+    </ng-container>
+  </ng-container>
+</div>

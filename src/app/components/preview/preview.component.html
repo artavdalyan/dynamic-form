@@ -1,0 +1,14 @@
+<div class="preview">
+  <ng-container *ngFor="let field of fs.forms" appDynamicField [field]="field" >
+  </ng-container>
+</div>
+<div class="button-block">
+  <button
+    *ngIf="fs.forms.length"
+    (click)="save()"
+    mat-raised-button
+    color="primary">
+    Save
+  </button>
+</div>
+

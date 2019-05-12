@@ -1,0 +1,37 @@
+<div [class.preview]="role.Preview === fs.role || role.Read === fs.role">
+  <mat-form-field *ngIf="role.Preview === fs.role">
+    <input matInput placeholder="Question"
+           [required]="field.required"
+           [value]="field.description"
+           readonly = "readonly"
+    >
+  </mat-form-field>
+  <div class="checkbox-lists">
+    <div class="checkbox-item" *ngFor="let checkboxes of checkboxes; let isFirst = first">
+          <mat-checkbox
+            [disabled]="role.Preview !== fs.role || field.readonly"
+            [required]="checkboxes.required && role.Preview === fs.role"
+            [(ngModel)]="checkboxes.checked"
+            >
+          </mat-checkbox>
+      <div>
+        <mat-form-field>
+          <input matInput
+                 [readonly]="role.Preview == fs.role || field.readonly"
+                 [(ngModel)]="checkboxes.label">
+        </mat-form-field></div>
+      <div *ngIf="isEdit && !isFirst">
+        <button (click)="delete(checkboxes.id)">Delete</button>
+      </div>
+    </div>
+    <button *ngIf="isEdit"
+            (click)="addCheckbox()">
+      Add Checkbox
+    </button>
+  </div>
+</div>
+
+
+
+
+

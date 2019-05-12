@@ -1,0 +1,51 @@
+<div class="question">
+  <mat-form-field>
+    <input matInput placeholder="Question"
+           [(ngModel)]="description"
+           [required]="required && !isEdit"
+           [disabled]="!isEdit">
+  </mat-form-field>
+  <mat-form-field *ngIf="isEdit">
+    <mat-select (selectionChange)="selectionChange($event)" [(ngModel)]="selectedOption">
+      <mat-option *ngFor="let option of options; let index = index" [value]="index">
+        {{option.label}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div class="dynamic-component">
+  <template #dynamicContainer>
+  </template>
+</div>
+<div class="actions" *ngIf="isEdit">
+  <button
+    (click)="save($event)"
+    mat-button
+    matTooltip="Save question"
+    color="red"
+  >
+    <mat-icon>
+      filter_none
+    </mat-icon>
+  </button>
+  <button
+    (click)="removeQuestion($event)"
+    mat-button
+    matTooltip="Remove question"
+    color="red"
+  >
+    <mat-icon>
+      delete
+    </mat-icon>
+  </button>
+  <button
+    (click)="cancelEdit($event)"
+    mat-button
+    matTooltip="Cancel question"
+    color="red"
+  >
+    <mat-icon>cancel</mat-icon>
+  </button>
+  <mat-slide-toggle [(ngModel)]="required">Required</mat-slide-toggle>
+</div>
+

@@ -1,0 +1,12 @@
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  > div {
+    margin: 5px;
+  }
+}
+
+.preview {
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,19 @@
+<div class="question list">
+    <div cdkDropList (cdkDropListDropped)="drop($event)">
+      <app-question-list *ngFor="let index of questionsList;"
+                         cdkDrag
+                         [index]="index"
+                         (deleteQuestion)="deleteQuestion($event)"
+                         >
+
+      </app-question-list>
+    </div>
+</div>
+<div class="add-question-button">
+  <button mat-fab
+          matTooltip="Add question"
+          color="red"
+          (click)="addQuestion()"
+  >+</button>
+</div>
+

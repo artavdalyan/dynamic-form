@@ -1,0 +1,18 @@
+<div [class.preview]="role.Preview === fs.role || role.Read === fs.role">
+  <mat-form-field *ngIf="role.Preview === fs.role || role.Read === fs.role">
+    <input matInput placeholder="Question"
+           [required]="field.required"
+           [readOnly]="field.readonly"
+           [value]="field.description"
+           readonly = "readonly"
+    >
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Short Answer"
+           [disabled]="role.Preview !== fs.role"
+           [readOnly]="field.readonly"
+           [required]="field.required && role.Preview === fs.role"
+           [(ngModel)]="field.value">
+  </mat-form-field>
+</div>
+

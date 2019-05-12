@@ -1,0 +1,16 @@
+<div [class.preview]="role.Preview === fs.role || role.Read === fs.role">
+  <mat-form-field *ngIf="role.Preview === fs.role || role.Read === fs.role">
+    <input matInput placeholder="Question"
+           [required]="field.required"
+           [value]="field.description"
+           readonly = "readonly"
+    >
+  </mat-form-field>
+  <input type="file"
+         [disabled]="role.Preview !== fs.role"
+         [required]="field.required && role.Preview === fs.role"
+         placeholder="add File"
+  >
+</div>
+
+

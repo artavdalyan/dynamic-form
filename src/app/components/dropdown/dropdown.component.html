@@ -1,0 +1,50 @@
+<div [class.preview]="role.Preview === fs.role || role.Read === fs.role">
+  <mat-form-field *ngIf="role.Preview === fs.role || role.Read === fs.role">
+    <input matInput placeholder="Question"
+           [required]="field.required"
+           [value]="field.description"
+            readonly = "readonly"
+    >
+  </mat-form-field>
+  <div class="dropdown-lists" *ngIf="role.Edit === fs.role">
+    <div class="dropdown-item" *ngFor="let dropdown of dropdown; let index = index; let isFirst = first">
+      <div class="index">
+        <div>{{index + 1}} .</div>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput
+                 [(ngModel)]="dropdown.label"
+          >
+        </mat-form-field></div>
+      <div >
+        <button
+          *ngIf="isEdit && !isFirst"
+          (click)="delete(dropdown.id)">Delete</button>
+      </div>
+    </div>
+    <button
+      *ngIf="isEdit"
+      (click)="addCheckbox()">
+      Add option
+    </button>
+  </div>
+  <div class="dropdown-lists" *ngIf="role.Read === fs.role || role.Preview === fs.role">
+    <mat-form-field>
+      <mat-label>Choose</mat-label>
+      <mat-select [(ngModel)]="field.selected" [disabled]="field.readonly">
+        <mat-option *ngFor="let dropdown of dropdown" [value]="dropdown.label">
+          {{dropdown.label}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+
+
+
+
+
+
+
+
