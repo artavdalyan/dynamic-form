@@ -1,5 +1,5 @@
 <div [class.preview]="role.Preview === fs.role || role.Read === fs.role">
-  <mat-form-field *ngIf="role.Preview === fs.role">
+  <mat-form-field *ngIf="role.Preview === fs.role || role.Read === fs.role">
     <input matInput placeholder="Question"
            [required]="field.required"
            [value]="field.description"
