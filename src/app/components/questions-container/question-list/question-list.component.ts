@@ -28,7 +28,7 @@ export class FieldConfig {
   description = '';
   required = false;
   value?: any;
-  date?: Date | number;
+  date?: Date;
   time?: number;
   constructor(field) {
     Object.assign(this, field);
@@ -85,8 +85,8 @@ export const questionOptions = [
 })
 export class QuestionListComponent implements OnInit {
 
-  constructor(private resolver: ComponentFactoryResolver,
-              private fs: FormsService
+  constructor(public resolver: ComponentFactoryResolver,
+              public fs: FormsService
   ) {
   }
   options = questionOptions;
@@ -111,7 +111,7 @@ export class QuestionListComponent implements OnInit {
   }
 
   removeQuestion(e: Event) {
-    this.fs.deletForm(this.index);
+    this.fs.deleteForm(this.index);
     this.deleteQuestion.emit(this.index);
     e.stopPropagation();
   }

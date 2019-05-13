@@ -2,7 +2,6 @@
   <mat-form-field *ngIf="role.Preview === fs.role || role.Read === fs.role">
     <input matInput placeholder="Question"
            [required]="field.required"
-           [readOnly]="field.readonly"
            [value]="field.description"
            readonly = "readonly"
     >

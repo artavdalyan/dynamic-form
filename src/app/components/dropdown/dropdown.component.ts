@@ -21,7 +21,7 @@ export class DropdownComponent implements OnInit {
   dropdown: Array<DropDown> = [];
   role = Role;
 
-  constructor(private fs: FormsService) {
+  constructor(public fs: FormsService) {
   }
   ngOnInit(): void {
     this.dropdown = this.field.options || this.dropdown;

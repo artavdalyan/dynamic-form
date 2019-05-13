@@ -8,7 +8,7 @@ import { FormsService, Role } from '../../services/forms.service';
 })
 export class EditModeComponent {
   role = Role;
-  constructor(private fs: FormsService) {
+  constructor(public fs: FormsService) {
     this.fs.forms = [];
     this.fs.role = Role.Edit;
   }

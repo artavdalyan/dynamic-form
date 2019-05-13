@@ -1,6 +1,9 @@
 <div class="preview">
   <ng-container *ngFor="let field of fs.forms" appDynamicField [field]="field" >
   </ng-container>
+  <div class="empty-alert" *ngIf="!fs.forms.length">
+    There are no data visible yet
+  </div>
 </div>
 <div class="button-block">
   <button

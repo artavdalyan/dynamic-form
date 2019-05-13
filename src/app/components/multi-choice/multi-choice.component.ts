@@ -21,7 +21,7 @@ export class MultiChoiceComponent implements OnInit{
   checkboxes: Array<MultiChoice> = [];
   role = Role;
 
-  constructor(private fs: FormsService) {
+  constructor(public fs: FormsService) {
   }
   ngOnInit(): void {
     this.checkboxes = this.field.options || this.checkboxes;

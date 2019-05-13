@@ -2,7 +2,7 @@ import { Component, QueryList, ViewChildren } from '@angular/core';
 import { getID } from '../../helpers/idGenerator.js';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { QuestionListComponent } from './question-list/question-list.component';
-import { FormsService, Role } from '../../services/forms.service';
+import { FormsService } from '../../services/forms.service';
 
 @Component({
   selector: 'app-questions-container',
@@ -12,7 +12,7 @@ import { FormsService, Role } from '../../services/forms.service';
 export class QuestionsContainerComponent  {
   questionsList: Array<number> = [];
   @ViewChildren(QuestionListComponent) questions: QueryList<QuestionListComponent>;
-  constructor(private fs: FormsService) {
+  constructor(public fs: FormsService) {
     this.addQuestion();
   }
   addQuestion() {

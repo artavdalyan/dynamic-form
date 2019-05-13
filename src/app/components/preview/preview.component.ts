@@ -15,7 +15,7 @@ export class PreviewComponent {
     this.fs.role = Role.Preview;
   }
   save(){
-     this.fs.saveResonse(this.fs.forms);
+     this.fs.saveResponse(this.fs.forms);
      this.router.navigateByUrl('/edit/mode');
   }
 }

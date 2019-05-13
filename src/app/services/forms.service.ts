@@ -30,21 +30,21 @@ export class FormsService {
     this.saveFormInStorage();
   }
 
-  deletForm(formId: number) {
+  deleteForm(formId: number) {
     this.forms = this.forms.filter(({id}) => id !== formId);
     this.saveFormInStorage();
   }
 
-  saveResonse(field) {
+  saveResponse(field) {
     this.responses =  [field];
-    this.saveResponceInStorage();
+    this.saveResponseInStorage();
   }
 
   saveFormInStorage() {
     localStorage.setItem('forms', JSON.stringify(this.forms));
   }
 
-  saveResponceInStorage() {
+  saveResponseInStorage() {
     localStorage.setItem('response', JSON.stringify(this.responses));
   }
 }

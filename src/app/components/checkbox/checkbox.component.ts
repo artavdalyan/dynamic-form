@@ -6,7 +6,6 @@ class Checkbox {
   id: number;
   label: string;
   checked = false;
-
   constructor(data) {
     Object.assign(this, data);
   }
@@ -23,10 +22,10 @@ export class CheckboxComponent implements OnInit {
   checkboxes: Array<Checkbox> = [];
   role = Role;
 
-  constructor(private fs: FormsService) {
+  constructor(public fs: FormsService) {
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.checkboxes = this.field.options || this.checkboxes;
     if (this.role.Edit === this.fs.role) {
       this.addCheckbox();
